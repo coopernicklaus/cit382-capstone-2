@@ -1,0 +1,181 @@
+/* ====== Retro CRT Theme ====== */
+
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap");
+
+:root {
+  --bg: #0a0a0a;
+  --neon: #00ff99;
+  --neon-soft: #00cc77;
+  --panel: #111;
+  --border: #00ff99;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--neon);
+  font-family: "VT323", monospace;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CRT glow effect */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    to bottom,
+    rgba(0, 255, 153, 0.03),
+    rgba(0, 255, 153, 0.03) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+}
+
+#root > * {
+  width: min(700px, 95%);
+  background: var(--panel);
+  border: 3px solid var(--border);
+  padding: 25px;
+  box-shadow: 0 0 25px var(--neon);
+}
+
+/* ===== Titles ===== */
+h1, h2 {
+  font-family: "Press Start 2P", cursive;
+  text-align: center;
+  color: var(--neon);
+  text-shadow: 0 0 8px var(--neon);
+  margin-bottom: 20px;
+}
+
+/* ===== XP Display ===== */
+p {
+  text-align: center;
+  font-size: 1.5rem;
+  text-shadow: 0 0 5px var(--neon);
+}
+
+/* ===== Links ===== */
+a {
+  display: inline-block;
+  margin: 10px auto;
+  padding: 10px 14px;
+  border: 2px solid var(--border);
+  color: var(--neon);
+  text-decoration: none;
+  text-align: center;
+  font-family: "Press Start 2P";
+  background: black;
+  box-shadow: 0 0 10px var(--neon);
+  transition: 0.2s;
+}
+
+a:hover {
+  background: var(--neon);
+  color: black;
+}
+
+/* ===== Forms ===== */
+form {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  background: black;
+  border: 2px solid var(--border);
+  color: var(--neon);
+  font-size: 1.2rem;
+  font-family: "VT323";
+}
+
+input:focus {
+  outline: none;
+  box-shadow: 0 0 8px var(--neon);
+}
+
+/* ===== Buttons ===== */
+button {
+  padding: 10px 14px;
+  background: black;
+  border: 2px solid var(--border);
+  color: var(--neon);
+  font-family: "Press Start 2P";
+  cursor: pointer;
+  box-shadow: 0 0 8px var(--neon);
+  transition: 0.2s;
+}
+
+button:hover {
+  background: var(--neon);
+  color: black;
+}
+
+button:disabled {
+  opacity: 0.4;
+}
+
+/* ===== Chore List ===== */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+li {
+  border: 2px solid var(--border);
+  padding: 12px;
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 0 8px var(--neon);
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4rem;
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--neon);
+}
+
+/* Completed chore look */
+label input:checked + span {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.quote-popup {
+  margin-top: 15px;
+  padding: 12px;
+  border: 2px solid #ff003c;
+  background: black;
+  color: #ff003c;
+  text-align: center;
+  font-family: "Press Start 2P";
+  animation: glow 0.8s infinite alternate;
+}
+
+@keyframes glow {
+  from { box-shadow: 0 0 6px #ff003c; }
+  to   { box-shadow: 0 0 18px #ff003c; }
+}
+
